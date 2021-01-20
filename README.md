@@ -14,22 +14,21 @@
 * TOS means Top Of Stack
 * BOS means Bottom Of Stack
 * Everything that isn't a command is a no-op.
-* Implicit output - If nothing is printed before termination, output the stack in reverse as ASCII.
 
 ### Math Operators
 
-|Operator|Function|
-|-------|-------|
-|`0-9`|Push the number to the stack|
-|`l`|Push 10 to the stack|
-|`L`|Push 13 to the stack|
-|`e`|Push 26 to the stack|
-|`E`|Push 32 to the stack|
-|`d`|Push 48 to the stack|
-|`D`|Push 65 to the stack|
-|`h`|Push 97 to the stack|
-|`H`|Push 100 to the stack|
-|`K`|Push 1000 to the stack|
+|Operator|Function|Implemented|
+|-------|-------|------|
+|`0-9`|Push the number to the stack|Yes|
+|`l`|Push 10 to the stack|Yes|
+|`L`|Push 13 to the stack|Yes|
+|`e`|Push 26 to the stack|Yes|
+|`E`|Push 32 to the stack|Yes|
+|`d`|Push 48 to the stack|Yes|
+|`D`|Push 65 to the stack|Yes|
+|`h`|Push 97 to the stack|Yes|
+|`H`|Push 100 to the stack|Yes|
+|`K`|Push 1000 to the stack|Yes|
 |`"`|Push all following symbols to the stack until another \" or EOF|
 |`'`|Push the next symbol to the stack|
 |`+`|Pop A,B from the stack, push B+A to the stack|
@@ -42,8 +41,8 @@
 
 ### Bitwise Operators
 
-|Operator|Function|
-|-------|-------|
+|Operator|Function|Implemented|
+|-------|-------|------|
 |`~`|Pop A from the stack, push NOT A to the stack
 |`&`|Pop A,B from the stack, push B AND A to the stack
 |`\|`|Pop A,B from the stack, push B OR A to the stack
@@ -51,8 +50,8 @@
 
 ### Stack
 
-|Operator|Function|
-|-------|-------|
+|Operator|Function|Implemented|
+|-------|-------|------|
 |`a`|Pop the stack, push it to register A|
 |`A`|Pop register A, push it to the stack|
 |`b`|Pop the stack, push it to register B|
@@ -71,19 +70,20 @@
 
 ### I/O
 
-|Operator|Function|
-|-------|-------|
+|Operator|Function|Implemented|
+|-------|-------|------|
 |`i`|input from STDIN to TOS|
 |`I`|input from STDIN to BOS|
 |`o`|output from TOS to STDOUT as ASCII|
 |`O`|output from BOS to STDOUT as ASCII|
 |`n`|output from TOS to STDOUT as number|
 |`N`|output from BOS to STDOUT as number|
+|Implicit output|If nothing is printed before termination, output the stack in reverse as ASCII.|Yes|
 
 ### Control Flow
 
-|Operator|Function|
-|-------|-------|
+|Operator|Function|Implemented|
+|-------|-------|------|
 |`<`|Pop A,B from the stack, push 1 to the stack if B < A, else push 0 to the stack|
 |`>`|Pop A,B from the stack, push 1 to the stack if B > A, else push 0 to the stack|
 |`=`|Pop A,B from the stack, push 1 to the stack if B == A, else push 0 to the stack|
