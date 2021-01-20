@@ -29,24 +29,24 @@
 |`h`|Push 97 to the stack|Yes|
 |`H`|Push 100 to the stack|Yes|
 |`K`|Push 1000 to the stack|Yes|
-|`"`|Push all following symbols to the stack until another \" or EOF|
-|`'`|Push the next symbol to the stack|
-|`+`|Pop A,B from the stack, push B+A to the stack|
-|`-`|Pop A,B from the stack, push B-A to the stack|
-|`*`|Pop A,B from the stack, push B\*A to the stack|
-|`/`|Pop A,B from the stack, push B\/A to the stack|
-|`%`|Pop A,B from the stack, push B%A to the stack|
-|`^`|Pop A,B from the stack, push B\*\*A to the stack|
-|`s`|Pop A from the stack, push sqrt(A) to the stack|
+|`` ` ``|Push all following symbols to the stack until another backtick or EOF|Yes|
+|`'`|Push the next symbol to the stack|Yes|
+|`+`|Pop A,B from the stack, push B+A to the stack|Yes|
+|`-`|Pop A,B from the stack, push B-A to the stack|Yes|
+|`*`|Pop A,B from the stack, push B\*A to the stack|Yes|
+|`/`|Pop A,B from the stack, push B\/A to the stack|Yes|
+|`%`|Pop A,B from the stack, push B%A to the stack|Yes|
+|`^`|Pop A,B from the stack, push B\*\*A to the stack|Yes|
+|`s`|Pop A from the stack, push sqrt(A) to the stack|Yes|
 
 ### Bitwise Operators
 
 |Operator|Function|Implemented|
 |-------|-------|------|
-|`~`|Pop A from the stack, push NOT A to the stack
-|`&`|Pop A,B from the stack, push B AND A to the stack
-|`\|`|Pop A,B from the stack, push B OR A to the stack
-|`_`|Pop A,B from the stack, push B XOR A to the stack
+|`~`|Pop A from the stack, push NOT A to the stack|Yes|
+|`&`|Pop A,B from the stack, push B AND A to the stack|Yes|
+|`\|`|Pop A,B from the stack, push B OR A to the stack|Yes|
+|`_`|Pop A,B from the stack, push B XOR A to the stack|Yes|
 
 ### Stack
 
