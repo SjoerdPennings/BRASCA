@@ -1,3 +1,5 @@
+import sys
+
 class BrascaClass:
     """Stack, registers and variables"""
     def __init__(self):
@@ -10,6 +12,12 @@ class BrascaClass:
         #Are we reading everything as characters?
         self.string_mode = False
 
+        #Piped-in data
+        if not sys.stdin.isatty():
+            self.stdin_data = sys.stdin.readline()[::-1]
+        else:
+            self.stdin_data = ""
+
         #Has anything been printed yet?
         self.already_printed = False
 
@@ -19,10 +27,6 @@ class BrascaClass:
         #The code and the pointer
         self.code_pointer = 0
         self.code = ""
-
-    #Toggle the string mode
-    def toggle_string_mode(self):
-        self.string_mode = not self.string_mode
 
     #Push number to the stack
     def push_number(self, num):

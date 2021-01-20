@@ -1,4 +1,4 @@
-import sys, getch, math
+import sys, math
 from brasca_class import BrascaClass
 from random import randrange
 
@@ -181,21 +181,68 @@ if __name__ == "__main__":
                     brasca.push_number(int(str(b)+str(a)))
                 elif command == "x": #discard top of stack
                     brasca.pop()
-                elif command == "x": #discard bottom of stack
+                elif command == "X": #discard bottom of stack
                     brasca.pop_bottom()
 
                 #I/O
+                elif command == "i": #Push char from STDIN to top of stack
+                    if brasca.stdin_data != "":
+                        brasca.stdin_data, result = brasca.stdin_data[:-1], brasca.stdin_data[-1]
+                        brasca.push_char(result)
+                elif command == "i": #Push char from STDIN to bottom of stack
+                    if brasca.stdin_data != "":
+                        brasca.stdin_data, result = brasca.stdin_data[:-1], brasca.stdin_data[-1]
+                        brasca.push_char_bottom(result)
+
+                elif command == "o": #Output as ASCII from top of stack
+                    print(chr(brasca.pop()), end='')
+                elif command == "O": #Output as ASCII from bottom of stack
+                    print(chr(brasca.pop_bottom()), end='')
+                elif command == "n": #Output as number from top of stack
+                    print(brasca.pop(), end='')
+                elif command == "N": #Output as number from bottom of stack
+                    print(brasca.pop_bottom(), end='')
 
 
                 #Control Flow
-
-                
+                elif command == "<": #Less than
+                    a = brasca.pop()
+                    b = brasca.pop()
+                    if b<a:
+                        brasca.push_number(1)
+                    else:
+                        brasca.push_number(0)
+                elif command == ">": #Greater than
+                    a = brasca.pop()
+                    b = brasca.pop()
+                    if b>a:
+                        brasca.push_number(1)
+                    else:
+                        brasca.push_number(0)
+                elif command == "=": #Equals
+                    a = brasca.pop()
+                    b = brasca.pop()
+                    if b==a:
+                        brasca.push_number(1)
+                    else:
+                        brasca.push_number(0)
+                elif command == "@": #Terminate
+                    brasca.already_printed = True
+                    sys.exit()
+                elif command == "#": #Conditional jump
+                    if brasca.pop() <= 0:
+                        brasca.code_pointer += 1
+                elif command == "j": #Jump forwards
+                    brasca.code_pointer += brasca.pop()-1
+                elif command == "J": #Jump backwards
+                    brasca.code_pointer -= brasca.pop()+1
                 elif command == "[": #While-loop start
                     if brasca.stack[-1] == 0:
                         brasca.code_pointer = brasca.while_loops[brasca.code_pointer]
                 elif command == "]": #While-loop end
-                    if brasca.stack[-1] != 0 and brasca.stack != []:
-                        brasca.code_pointer = brasca.while_loops[brasca.code_pointer]
+                    if brasca.stack != []:
+                        if brasca.stack[-1] != 0:
+                            brasca.code_pointer = brasca.while_loops[brasca.code_pointer]-1
 
             #If the interpreter is reading as a string
             elif brasca.string_mode == True:

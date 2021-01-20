@@ -3,6 +3,12 @@
 **BRASCA - BRAckets and other Symbols turning Code into Ascii**
 `i tried my best with the acronym, okay`
 
+## Installation & Usage
+
+* Get [Python 3.9](http://www.python.org)
+* Run your code with `python brasca.py c <your code>` or `python brasca.py f <filename>`.
+* Use `python brasca.py cd/fd <code/file>` for debugging the stack.
+
 ## Data
 
 * Stack by default, some commands can treat it like a queue if needed.
@@ -71,23 +77,23 @@
 
 |Operator|Function|Implemented|
 |-------|-------|------|
-|`i`|input from STDIN to TOS|
-|`I`|input from STDIN to BOS|
-|`o`|output from TOS to STDOUT as ASCII|
-|`O`|output from BOS to STDOUT as ASCII|
-|`n`|output from TOS to STDOUT as number|
-|`N`|output from BOS to STDOUT as number|
+|`i`|input from STDIN to TOS|Yes|
+|`I`|input from STDIN to BOS|Yes|
+|`o`|output from TOS to STDOUT as ASCII|Yes|
+|`O`|output from BOS to STDOUT as ASCII|Yes|
+|`n`|output from TOS to STDOUT as number|Yes|
+|`N`|output from BOS to STDOUT as number|Yes|
 |Implicit output|If nothing is printed before termination, output the stack in reverse as ASCII.|Yes|
 
 ### Control Flow
 
 |Operator|Function|Implemented|
 |-------|-------|------|
-|`<`|Pop A,B from the stack, push 1 to the stack if B < A, else push 0 to the stack|
-|`>`|Pop A,B from the stack, push 1 to the stack if B > A, else push 0 to the stack|
-|`=`|Pop A,B from the stack, push 1 to the stack if B == A, else push 0 to the stack|
-|`@`|Terminate program without implicit output.|
-|`#`|Pop A from the stack, if A > 0, execute the next instruction, otherwise skip it.|
+|`<`|Pop A,B from the stack, push 1 to the stack if B < A, else push 0 to the stack|Yes|
+|`>`|Pop A,B from the stack, push 1 to the stack if B > A, else push 0 to the stack|Yes|
+|`=`|Pop A,B from the stack, push 1 to the stack if B == A, else push 0 to the stack|Yes|
+|`@`|Terminate program without implicit output.|Yes|
+|`#`|Pop A from the stack, if A > 0, execute the next instruction, otherwise skip it.|Yes|
 |`[...]`    |Check, but don't pop, the top of the stack. If it is non-zero execute the code inside \[\], then jump back to the \[ and repeat, else jump to \] and continue on|Yes|
-|`j`|Pop n from the stack, move the code pointer n cells backwards|
-|`J`|Pop n from the stack, move the code pointer n cells forwards|
+|`j`|Pop n from the stack, move the code pointer n cells backwards|Yes|
+|`J`|Pop n from the stack, move the code pointer n cells forwards|Yes|
