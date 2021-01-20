@@ -88,8 +88,7 @@
 |`>`|Pop A,B from the stack, push 1 to the stack if B > A, else push 0 to the stack|
 |`=`|Pop A,B from the stack, push 1 to the stack if B == A, else push 0 to the stack|
 |`@`|Terminate program without implicit output.|
-|`{...}`    |Pop n from the stack, repeat the code inside {} n times, then continue on|
-|`(...#...)`|Pop A from the stack, if A > 0, execute everything up to the #, then jump to ) and continue on, else jump to # and continue on|
-|`[...]`    |Pop A from the stack, if A > 0 execute the code inside \[\], then jump back to the \[ and repeat, else jump to \] and continue on|
+|`#`|Pop A from the stack, if A > 0, execute the next instruction, otherwise skip it.|
+|`[...]`    |Pop A from the stack, if A is non-zero execute the code inside \[\], then jump back to the \[ and repeat, else jump to \] and continue on|
 |`j`|Pop n from the stack, move the code pointer n cells backwards|
 |`J`|Pop n from the stack, move the code pointer n cells forwards|
