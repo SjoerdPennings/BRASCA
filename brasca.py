@@ -289,7 +289,7 @@ if __name__ == "__main__":
                     if brasca.stdin_data != "":
                         brasca.stdin_data, result = brasca.stdin_data[:-1], brasca.stdin_data[-1]
                         brasca.push_char(result)
-                elif command == "i": #Push char from STDIN to bottom of stack
+                elif command == "I": #Push char from STDIN to bottom of stack
                     if brasca.stdin_data != "":
                         brasca.stdin_data, result = brasca.stdin_data[:-1], brasca.stdin_data[-1]
                         brasca.push_char_bottom(result)
