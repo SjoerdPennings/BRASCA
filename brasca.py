@@ -47,11 +47,17 @@ class BrascaClass:
 
     #Pop from stack
     def pop(self):
-        return self.stack.pop()
+        if not self.stack:
+            return 0
+        else:
+            return self.stack.pop()
     
     #Pop from the bottom of the stack
     def pop_bottom(self):
-        return self.stack.pop(0)
+        if not self.stack:
+            return 0
+        else:
+            return self.stack.pop(0)
 
     #Set the register
     def set_register(self, register):
@@ -331,8 +337,9 @@ if __name__ == "__main__":
                 elif command == "J": #Jump backwards
                     brasca.code_pointer -= brasca.pop()+1
                 elif command == "[": #While-loop start
-                    if brasca.stack[-1] == 0:
-                        brasca.code_pointer = brasca.while_loops[brasca.code_pointer]
+                    if brasca.stack != []:
+                        if brasca.stack[-1] == 0:
+                            brasca.code_pointer = brasca.while_loops[brasca.code_pointer]
                 elif command == "]": #While-loop end
                     if brasca.stack != []:
                         if brasca.stack[-1] != 0:
