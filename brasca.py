@@ -298,12 +298,20 @@ if __name__ == "__main__":
                 #         brasca.push_number_bottom(-1)
 
                 elif command == "o": #Output as ASCII from top of stack
+                    if brasca.already_printed == False:
+                        brasca.already_printed = True
                     print(chr(brasca.pop()), end='')
                 elif command == "O": #Output as ASCII from bottom of stack
+                    if brasca.already_printed == False:
+                        brasca.already_printed = True
                     print(chr(brasca.pop_bottom()), end='')
                 elif command == "n": #Output as number from top of stack
+                    if brasca.already_printed == False:
+                        brasca.already_printed = True
                     print(brasca.pop(), end='')
                 elif command == "N": #Output as number from bottom of stack
+                    if brasca.already_printed == False:
+                        brasca.already_printed = True
                     print(brasca.pop_bottom(), end='')
 
 
