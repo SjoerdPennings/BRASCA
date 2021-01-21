@@ -156,12 +156,18 @@ if __name__ == "__main__":
                     a = brasca.pop_bottom()
                     brasca.push_number_bottom(a)
                     brasca.push_number_bottom(a)
-                elif command == "m": #move top of stack to bottom n times
+                elif command == "m": #move top of stack to bottom
+                    value = brasca.pop()
+                    brasca.push_number_bottom(value)
+                elif command == "M": #move bottom of stack to top
+                    value = brasca.pop_bottom()
+                    brasca.push_number(value)
+                elif command == "p": #move top of stack to bottom n times
                     amount = brasca.pop()
                     for n in range(0,amount):
                         value = brasca.pop()
                         brasca.push_number_bottom(value)
-                elif command == "M": #move bottom of stack to top n times
+                elif command == "P": #move bottom of stack to top n times
                     amount = brasca.pop()
                     for n in range(0,amount):
                         value = brasca.pop_bottom()

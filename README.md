@@ -64,8 +64,10 @@
 |`,`|Reverse stack|Yes|
 |`:`|Duplicate TOS|Yes|
 |`;`|Duplicate BOS|Yes|
-|`m`|Pop n from TOS and push the top n items on the stack to BOS|Yes|
-|`M`|Pop n from BOS and push the bottom n items on the stack to TOS|Yes|
+|`m`|Pop the top of the stack and push the value to BOS|Yes|
+|`M`|Pop the bottom of the stack and push the value to TOS|Yes|
+|`p`|Pop n from TOS and push the top n items on the stack to BOS|Yes|
+|`P`|Pop n from BOS and push the bottom n items on the stack to TOS|Yes|
 |`?`|Push a random number from 0 to 127 to the stack|Yes|
 |`!`|Push the length of the stack to the stack|Yes|
 |`$`|Swap the top two items on the stack|Yes|
