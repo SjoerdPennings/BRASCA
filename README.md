@@ -79,8 +79,7 @@
 
 |Operator|Function|Implemented|
 |-------|-------|------|
-|`i`|input from STDIN to TOS|Yes|
-|`I`|input from STDIN to BOS|Yes|
+|Implicit input|If there's any data piped in via STDIN, it's pushed on the stack by default|Yes|
 |`o`|output from TOS to STDOUT as ASCII|Yes|
 |`O`|output from BOS to STDOUT as ASCII|Yes|
 |`n`|output from TOS to STDOUT as number|Yes|

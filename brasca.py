@@ -16,6 +16,9 @@ class BrascaClass:
         #Piped-in data
         if not sys.stdin.isatty():
             self.stdin_data = sys.stdin.readline()[::-1]
+            for _, _ in enumerate(self.stdin_data):
+                self.stdin_data, result = self.stdin_data[:-1], self.stdin_data[-1]
+                self.stack.append(ord(result))
         else:
             self.stdin_data = ""
 
@@ -285,14 +288,18 @@ if __name__ == "__main__":
                     brasca.pop_bottom()
 
                 #I/O
-                elif command == "i": #Push char from STDIN to top of stack
-                    if brasca.stdin_data != "":
-                        brasca.stdin_data, result = brasca.stdin_data[:-1], brasca.stdin_data[-1]
-                        brasca.push_char(result)
-                elif command == "I": #Push char from STDIN to bottom of stack
-                    if brasca.stdin_data != "":
-                        brasca.stdin_data, result = brasca.stdin_data[:-1], brasca.stdin_data[-1]
-                        brasca.push_char_bottom(result)
+                # elif command == "i": #Push char from STDIN to top of stack
+                #     if brasca.stdin_data != "":
+                #         brasca.stdin_data, result = brasca.stdin_data[:-1], brasca.stdin_data[-1]
+                #         brasca.push_char(result)
+                #     else:
+                #         brasca.push_number(-1)
+                # elif command == "I": #Push char from STDIN to bottom of stack
+                #     if brasca.stdin_data != "":
+                #         brasca.stdin_data, result = brasca.stdin_data[:-1], brasca.stdin_data[-1]
+                #         brasca.push_char_bottom(result)
+                #     else:
+                #         brasca.push_number_bottom(-1)
 
                 elif command == "o": #Output as ASCII from top of stack
                     print(chr(brasca.pop()), end='')
@@ -338,11 +345,11 @@ if __name__ == "__main__":
                     brasca.code_pointer -= brasca.pop()+1
                 elif command == "[": #While-loop start
                     if brasca.stack != []:
-                        if brasca.stack[-1] == 0:
+                        if brasca.stack[-1] <= 0:
                             brasca.code_pointer = brasca.while_loops[brasca.code_pointer]
                 elif command == "]": #While-loop end
                     if brasca.stack != []:
-                        if brasca.stack[-1] != 0:
+                        if brasca.stack[-1] > 0:
                             brasca.code_pointer = brasca.while_loops[brasca.code_pointer]-1
 
             #If the interpreter is reading as a string
