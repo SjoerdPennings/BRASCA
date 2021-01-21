@@ -11,7 +11,8 @@
 
 ## Data
 
-* Stack by default, some commands can treat it like a queue if needed.
+* Data is stored as numbers on a stack.
+* Popping an empty stack returns 0.
 * Two registers: A and B.
 
 ## Commands
@@ -34,8 +35,8 @@
 |`h`|Push 97 to the stack|Yes|
 |`H`|Push 100 to the stack|Yes|
 |`K`|Push 1000 to the stack|Yes|
-|`` ` ``|Push all following symbols to the stack until another backtick or EOF|Yes|
-|`'`|Push the next symbol to the stack|Yes|
+|`` ` ``|Push all following characters to the stack until another backtick or EOF|Yes|
+|`'`|Push the next character to the stack|Yes|
 |`+`|Pop A,B from the stack, push B+A to the stack|Yes|
 |`-`|Pop A,B from the stack, push B-A to the stack|Yes|
 |`*`|Pop A,B from the stack, push B\*A to the stack|Yes|
@@ -62,28 +63,28 @@
 |`b`|Pop the stack, push it to register B|Yes|
 |`B`|Pop register B, push it to the stack|Yes|
 |`,`|Reverse stack|Yes|
-|`:`|Duplicate TOS|Yes|
-|`;`|Duplicate BOS|Yes|
+|`:`|Duplicate the top of the stack|Yes|
+|`;`|Duplicate the bottom of the stack|Yes|
 |`m`|Pop the top of the stack and push the value to BOS|Yes|
 |`M`|Pop the bottom of the stack and push the value to TOS|Yes|
-|`p`|Pop n from TOS and push the top n items on the stack to BOS|Yes|
-|`P`|Pop n from BOS and push the bottom n items on the stack to TOS|Yes|
+|`p`|Pop n from the top of the stack and push the top n items on the stack to BOS|Yes|
+|`P`|Pop n from the bottom of the stack and push the bottom n items on the stack to TOS|Yes|
 |`?`|Push a random number from 0 to 127 to the stack|Yes|
 |`!`|Push the length of the stack to the stack|Yes|
 |`$`|Swap the top two items on the stack|Yes|
 |`S`|Pop A,B from the stack, concatenate B and A, push the result to stack|Yes|
-|`x`|Pop TOS and discard it|Yes|
-|`X`|Pop BOS and discard it|Yes|
+|`x`|Pop the top of the stack and discard it|Yes|
+|`X`|Pop the bottom of the stack and discard it|Yes|
 
 ### I/O
 
 |Operator|Function|Implemented|
 |-------|-------|------|
 |Implicit input|If there's any data piped in via STDIN, it's pushed on the stack by default|Yes|
-|`o`|output from TOS to STDOUT as ASCII|Yes|
-|`O`|output from BOS to STDOUT as ASCII|Yes|
-|`n`|output from TOS to STDOUT as number|Yes|
-|`N`|output from BOS to STDOUT as number|Yes|
+|`o`|output the top of the stack to STDOUT as ASCII|Yes|
+|`O`|output the bottom of the stack to STDOUT as ASCII|Yes|
+|`n`|output the top of the stack to STDOUT as a number|Yes|
+|`N`|output the bottom of the stack to STDOUT as a number|Yes|
 |Implicit output|If nothing is printed before termination, output the stack in reverse as ASCII.|Yes|
 
 ### Control Flow
