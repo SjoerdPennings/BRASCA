@@ -129,10 +129,6 @@ if __name__ == "__main__":
 
     # Build the loop map
     brasca.build_loops()
-    
-    # If there's no code, do nothing and close.
-    if len(brasca.code) <= 0:
-        sys.exit()
 
     # Main loop
     while brasca.code_pointer < len(brasca.code):
