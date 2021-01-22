@@ -8,6 +8,8 @@
 * Get [Python 3.9](http://www.python.org)
 * Run your code with `python brasca.py c <your code>` or `python brasca.py f <filename>`.
 * Use `python brasca.py cd/fd <code/file>` for debugging the stack.
+* Use `python brasca.py cs/fs <code/file>` to slow down the output.
+* Use `python brasca.py cds/fds <code/file>` for both.
 
 ## Data
 
