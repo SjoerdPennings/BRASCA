@@ -1,6 +1,7 @@
 import sys, math
 from time import sleep
 from random import randrange
+import traceback
 
 class BrascaClass:
     """Stack, registers and variables"""
@@ -288,6 +289,20 @@ if __name__ == "__main__":
                     a = brasca.pop()
                     b = brasca.pop()
                     brasca.push_number(int(str(b)+str(a)))
+                elif command == "g": #concatenate stack
+                    temp = int(''.join(str(n) for n in brasca.stack))
+                    for counter in range(0,len(brasca.stack)):
+                        brasca.pop()
+                    brasca.push_number(temp)
+                elif command == "i": #convert ascii to number (-48)
+                    for count, value in enumerate(brasca.stack):
+                        if value >= 48 and value <= 57:
+                            brasca.stack[count] = value-48
+                elif command == "I": #convert number to ascii (+48)
+                    for count, value in enumerate(brasca.stack):
+                        if value >= 0 and value <= 9:
+                            brasca.stack[count] = value+48
+
                 elif command == "x": #discard top of stack
                     brasca.pop()
                 elif command == "X": #discard bottom of stack
@@ -376,9 +391,10 @@ if __name__ == "__main__":
             brasca.code_pointer += 1
         except KeyboardInterrupt:
             sys.exit()
-        except:
+        except Exception as e:
             #Something went wrong, throw an error
             print("ERROR: Something went wrong")
+            print(traceback.format_exc())
             sys.exit()
 
     #Implicit output
