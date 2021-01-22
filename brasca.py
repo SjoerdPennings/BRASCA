@@ -16,7 +16,7 @@ class BrascaClass:
 
         #Piped-in data
         if not sys.stdin.isatty():
-            self.stdin_data = sys.stdin.readline()[::-1]
+            self.stdin_data = sys.stdin.read()[::-1]
             for _, _ in enumerate(self.stdin_data):
                 self.stdin_data, result = self.stdin_data[:-1], self.stdin_data[-1]
                 self.stack.append(ord(result))
