@@ -1,4 +1,4 @@
-# BRASCA
+# BRASCA v0.1
 
 **BRASCA - BRAckets and other Symbols turning Code into Ascii**
 `i tried my best with the acronym, okay`

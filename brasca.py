@@ -1,4 +1,5 @@
 import sys, math
+from time import sleep
 from random import randrange
 
 class BrascaClass:
@@ -105,15 +106,16 @@ python brasca.py f <filename>
 python brasca.py c <code>
 
 To enable debug, use fd/cd instead of f/c.
+To slow down output, use fs/cs
 """
 if __name__ == "__main__":
     brasca = BrascaClass()
 
     # Check system arguments and save the code to a variable
     if len(sys.argv) >= 3:
-        if sys.argv[1] == "c" or sys.argv[1] == "cd":
+        if sys.argv[1] == "c" or sys.argv[1] == "cd" or sys.argv[1] == "cs" or sys.argv[1] == "cds":
             brasca.code = ' '.join(sys.argv[2:])
-        elif sys.argv[1] == "f" or sys.argv[1] == "fd":
+        elif sys.argv[1] == "f" or sys.argv[1] == "fd" or sys.argv[1] == "fs" or sys.argv[1] == "fds":
             try:
                 f = open(sys.argv[2])
                 brasca.code = f.readline()
@@ -284,18 +286,6 @@ if __name__ == "__main__":
                     brasca.pop_bottom()
 
                 #I/O
-                # elif command == "i": #Push char from STDIN to top of stack
-                #     if brasca.stdin_data != "":
-                #         brasca.stdin_data, result = brasca.stdin_data[:-1], brasca.stdin_data[-1]
-                #         brasca.push_char(result)
-                #     else:
-                #         brasca.push_number(-1)
-                # elif command == "I": #Push char from STDIN to bottom of stack
-                #     if brasca.stdin_data != "":
-                #         brasca.stdin_data, result = brasca.stdin_data[:-1], brasca.stdin_data[-1]
-                #         brasca.push_char_bottom(result)
-                #     else:
-                #         brasca.push_number_bottom(-1)
 
                 elif command == "o": #Output as ASCII from top of stack
                     if brasca.already_printed == False:
@@ -368,6 +358,11 @@ if __name__ == "__main__":
             #If debug mode is on, print the stack and registers after every command
             if sys.argv[1] == "cd" or sys.argv[1] == "fd":
                 print(command + " | " + str(brasca.string_mode) + " | " + str(brasca.a) + " | " + str(brasca.b) +" | " + str(brasca.stack))
+            elif sys.argv[1] == "cs" or sys.argv[1] == "fs":
+                sleep(0.1)
+            elif sys.argv[1] == "cds" or sys.argv[1] == "fds":
+                print(command + " | " + str(brasca.string_mode) + " | " + str(brasca.a) + " | " + str(brasca.b) +" | " + str(brasca.stack))
+                sleep(0.3)
 
             #Move the code pointer
             brasca.code_pointer += 1
