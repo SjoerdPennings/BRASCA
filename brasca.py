@@ -276,6 +276,14 @@ if __name__ == "__main__":
                     b = brasca.pop()
                     brasca.push_number(a)
                     brasca.push_number(b)
+                elif command == "R": #rotate top three items on stack
+                    a = brasca.pop()
+                    b = brasca.pop()
+                    c = brasca.pop()
+                    brasca.push_number(a)
+                    brasca.push_number(c)
+                    brasca.push_number(b)
+                    
                 elif command == "S": #concatenate top two numbers
                     a = brasca.pop()
                     b = brasca.pop()
@@ -366,7 +374,8 @@ if __name__ == "__main__":
 
             #Move the code pointer
             brasca.code_pointer += 1
-
+        except KeyboardInterrupt:
+            sys.exit()
         except:
             #Something went wrong, throw an error
             print("ERROR: Something went wrong")
