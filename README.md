@@ -17,10 +17,6 @@
 
 ## Commands
 
-* TOS means Top Of Stack
-* BOS means Bottom Of Stack
-* Everything that isn't a command is a no-op.
-
 ### Math Operators
 
 |Operator|Function|Implemented|
@@ -81,10 +77,10 @@
 |Operator|Function|Implemented|
 |-------|-------|------|
 |Implicit input|If there's any data piped in via STDIN, it's pushed on the stack by default|Yes|
-|`o`|output the top of the stack to STDOUT as ASCII|Yes|
-|`O`|output the bottom of the stack to STDOUT as ASCII|Yes|
-|`n`|output the top of the stack to STDOUT as a number|Yes|
-|`N`|output the bottom of the stack to STDOUT as a number|Yes|
+|`o`|Output the top of the stack to STDOUT as ASCII|Yes|
+|`O`|Output the bottom of the stack to STDOUT as ASCII|Yes|
+|`n`|Output the top of the stack to STDOUT as a number|Yes|
+|`N`|Output the bottom of the stack to STDOUT as a number|Yes|
 |Implicit output|If nothing is printed before termination, output the stack in reverse as ASCII.|Yes|
 
 ### Control Flow
@@ -96,6 +92,7 @@
 |`=`|Pop A,B from the stack, push 1 to the stack if B == A, else push 0 to the stack|Yes|
 |`@`|Terminate program without implicit output.|Yes|
 |`#`|Pop A from the stack, if A > 0, execute the next instruction, otherwise skip it.|Yes|
-|`[...]`    |Check, but don't pop, the top of the stack. If it is non-zero execute the code inside \[\], then jump back to the \[ and repeat, else jump to \] and continue on|Yes|
+|`[...]`    |Check, but don't pop, the top of the stack. While it is non-zero, loop the code inside \[\]|Yes|
 |`j`|Pop n from the stack, move the code pointer n cells backwards|Yes|
 |`J`|Pop n from the stack, move the code pointer n cells forwards|Yes|
+|Anything else|No-op|Yes|
