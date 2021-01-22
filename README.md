@@ -75,7 +75,7 @@
 |`x`|Pop the top of the stack and discard it|
 |`X`|Pop the bottom of the stack and discard it|
 |`i`|Convert stack from ASCII to number|
-|`i`|Convert stack from number to ASCII|
+|`I`|Convert stack from number to ASCII|
 |`g`|Concatenate stack together|
 
 ### I/O
