@@ -1,4 +1,4 @@
-# BRASCA v0.2
+# BRASCA v0.3
 
 **BRASCA - BRAckets and other Symbols turning Code into Ascii**  
 `i tried my best with the acronym, okay`
@@ -42,6 +42,8 @@
 |`%`|Pop A,B from the stack, push B%A to the stack|
 |`^`|Pop A,B from the stack, push B\*\*A to the stack|
 |`s`|Pop A from the stack, push sqrt(A) to the stack|
+|`}`|Increment top of stack|
+|`{`|Decrement top of stack|
 
 ### Bitwise Operators
 
@@ -67,7 +69,7 @@
 |`M`|Pop the bottom of the stack and push the value to TOS|
 |`p`|Pop n from the top of the stack and push the top n items on the stack to BOS|
 |`P`|Pop n from the bottom of the stack and push the bottom n items on the stack to TOS|
-|`?`|Push a random number from 0 to 127 to the stack|
+|`?`|Pop n from the top of the stack and push a random number from 0 to n (inclusive) to the stack|
 |`!`|Push the length of the stack to the stack|
 |`$`|Swap the top two items on the stack|
 |`R`|Rotate the top three items on the stack|

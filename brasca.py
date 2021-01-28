@@ -178,6 +178,10 @@ if __name__ == "__main__":
                     brasca.push_number(100)
                 elif command == "K":
                     brasca.push_number(1000)
+                elif command == "{":
+                    brasca.push_number(brasca.pop()-1)
+                elif command == "}":
+                    brasca.push_number(brasca.pop()+1)
 
                 #Push strings/char
                 elif command == '`':
@@ -269,7 +273,7 @@ if __name__ == "__main__":
                         value = brasca.pop_bottom()
                         brasca.push_number(value)
                 elif command == "?": #random number 0-127
-                    brasca.push_number(randrange(128))
+                    brasca.push_number(randrange(int(brasca.pop()+1)))
                 elif command == "!": #push length of stack
                     brasca.push_number(brasca.length())
                 elif command == "$": #swap top two items on stack
