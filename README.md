@@ -1,11 +1,11 @@
-# BRASCA v0.3
+# BRASCA v0.4
 
 **BRASCA - BRAckets and other Symbols turning Code into Ascii**  
 `i tried my best with the acronym, okay`
 
 ## Installation & Usage
 
-* Get [Python 3.9](http://www.python.org)
+* Get [Python 3](http://www.python.org)
 * Run your code with `python brasca.py c <your code>` or `python brasca.py f <filename>`.
 * Use `python brasca.py cd/fd <code/file>` for debugging the stack.
 * Use `python brasca.py cs/fs <code/file>` to slow down the output.
@@ -44,6 +44,7 @@
 |`s`|Pop A from the stack, push sqrt(A) to the stack|
 |`}`|Increment top of stack|
 |`{`|Decrement top of stack|
+|`r`|Pop A,B from the stack, push range(B,A), inclusive, to the stack.|
 
 ### Bitwise Operators
 
@@ -79,6 +80,8 @@
 |`i`|Convert stack from ASCII to number|
 |`I`|Convert stack from number to ASCII|
 |`g`|Concatenate stack together|
+|`u`|Pop A from the stack, split into individual digits and push to stack (Un-`S`)|
+|`U`|Split the entire stack into individual digits (Un-`g`)|
 
 ### I/O
 
@@ -98,6 +101,7 @@
 |`<`|Pop A,B from the stack, push 1 to the stack if B < A, else push 0 to the stack|
 |`>`|Pop A,B from the stack, push 1 to the stack if B > A, else push 0 to the stack|
 |`=`|Pop A,B from the stack, push 1 to the stack if B == A, else push 0 to the stack|
+|`Y`|Pop A,B,C from the stack, push 1 to the stack if B <= C <= A, else push 0 to the stack|
 |`@`|Terminate program without implicit output.|
 |`#`|Pop A from the stack, if A > 0, execute the next instruction, otherwise skip it.|
 |`[...]`    |Check, but don't pop, the top of the stack. While it is non-zero, loop the code inside \[ \]|

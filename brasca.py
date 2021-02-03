@@ -178,10 +178,15 @@ if __name__ == "__main__":
                     brasca.push_number(100)
                 elif command == "K":
                     brasca.push_number(1000)
-                elif command == "{":
+                elif command == "{": #Decrement
                     brasca.push_number(brasca.pop()-1)
-                elif command == "}":
+                elif command == "}": #Increment
                     brasca.push_number(brasca.pop()+1)
+                elif command == "r": #Push Range
+                    a = brasca.pop()
+                    b = brasca.pop()
+                    for i in range(b, a+1):
+                        brasca.push_number(i)
 
                 #Push strings/char
                 elif command == '`':
@@ -311,6 +316,16 @@ if __name__ == "__main__":
                     brasca.pop()
                 elif command == "X": #discard bottom of stack
                     brasca.pop_bottom()
+                elif command == "u": #Un-S
+                    n = brasca.pop()
+                    for d in str(n):
+                        brasca.push_number(int(d))
+                elif command == "U": #Un-g
+                    n = ''.join(str(x) for x in brasca.stack)
+                    brasca.stack = []
+                    for d in str(n):
+                        brasca.push_number(int(d))
+
 
                 #I/O
 
@@ -351,6 +366,14 @@ if __name__ == "__main__":
                     a = brasca.pop()
                     b = brasca.pop()
                     if b==a:
+                        brasca.push_number(1)
+                    else:
+                        brasca.push_number(0)
+                elif command == 'Y': #Between
+                    a = brasca.pop()
+                    b = brasca.pop()
+                    c = brasca.pop()
+                    if b <= c <= a:
                         brasca.push_number(1)
                     else:
                         brasca.push_number(0)
