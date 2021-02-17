@@ -91,14 +91,27 @@ class BrascaClass:
     #Populate the while loop list (self.while_loops)
     def build_loops(self):
         temp = []
+        temp_strmode = False
+        temp_singlequote = 0
         for position, command in enumerate(self.code):
-            if command == "[":
+            if temp_singlequote > 0:
+                temp_singlequote -= 1
+            elif temp_singlequote == 0:
+                temp_strmode = False
+
+            if command == "[" and temp_strmode == False:
                 temp.append(position)
-            elif command == "]":
+            elif command == "]" and temp_strmode == False:
                 start = temp.pop()
                 self.while_loops[start] = position
                 self.while_loops[position] = start
-
+            elif command == "'":
+                temp_strmode = True
+                temp_singlequote = 2
+            elif command == "`" and temp_strmode == False:
+                temp_strmode == True
+            elif command == "`" and temp_strmode == True:
+                temp_strmode == False
 
 
 """
