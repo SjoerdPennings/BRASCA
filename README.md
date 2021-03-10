@@ -1,4 +1,4 @@
-# BRASCA v0.4
+# BRASCA v0.5
 
 **BRASCA - BRAckets and other Symbols turning Code into Ascii**  
 `i tried my best with the acronym, okay`
@@ -92,6 +92,7 @@
 |`O`|Output the bottom of the stack to STDOUT as ASCII|
 |`n`|Output the top of the stack to STDOUT as a number|
 |`N`|Output the bottom of the stack to STDOUT as a number|
+|`C`|Make implicit output print everything as number instead of ASCII|
 |Implicit output|If nothing is printed before termination, output the stack in reverse as ASCII.|
 
 ### Control Flow
