@@ -35,6 +35,7 @@ class BrascaClass:
         self.code = ""
 
         self.implicit_num = False
+        self.implicit_top = False
 
     #Push number to the stack
     def push_number(self, num):
@@ -412,6 +413,8 @@ if __name__ == "__main__":
                             brasca.code_pointer = brasca.while_loops[brasca.code_pointer]-1
                 elif command == "C":
                     brasca.implicit_num = True
+                elif command == "T":
+                    brasca.implicit_top = True
 
             #If the interpreter is reading as a string
             elif brasca.string_mode == True:
@@ -443,8 +446,15 @@ if __name__ == "__main__":
 
     #Implicit output
     if brasca.already_printed == False:
-        brasca.reverse()
-        for counter in range(0,len(brasca.stack)):
+        if brasca.implicit_top is False:
+            brasca.reverse()
+            for counter in range(0,len(brasca.stack)):
+                a=brasca.pop()
+                if brasca.implicit_num is False:
+                    print(chr(a), end='')
+                elif brasca.implicit_num is True:
+                    print(a, end='')
+        elif brasca.implicit_top is True:
             a=brasca.pop()
             if brasca.implicit_num is False:
                 print(chr(a), end='')
