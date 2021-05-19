@@ -1,4 +1,4 @@
-import sys, math
+import sys, math, itertools
 from time import sleep
 from random import randrange
 import traceback
@@ -319,6 +319,15 @@ if __name__ == "__main__":
                     for counter in range(0,len(brasca.stack)):
                         brasca.pop()
                     brasca.push_number(temp)
+                elif command == "G": #concatenate stack and split
+                    #`1.23.45` '. i G => 1 23 45
+                    delim = brasca.pop()
+                    spl = [list(y) for x, y in itertools.groupby(brasca.stack, lambda z: z == delim) if not x]
+                    for counter in range(0,len(brasca.stack)):
+                        brasca.pop()
+                    for x in spl:
+                        temp = int(''.join(str(y) for y in x))
+                        brasca.push_number(temp)
                 elif command == "i": #convert ascii to number (-48)
                     for count, value in enumerate(brasca.stack):
                         if value >= 48 and value <= 57:
